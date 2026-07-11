@@ -2,9 +2,13 @@ package org.firstinspires.ftc.teamcode;
 
 public class RobotLocation {
     double angleRadians;
+    double x;
+    double y;
 
-    public RobotLocation(double angleDegrees){
+    public RobotLocation(double angleDegrees, double x, double y){
         this.angleRadians = Math.toRadians(angleDegrees);
+        this.x = x;
+        this.y = y;
     }
 
     public double getHeading(){
@@ -17,7 +21,10 @@ public class RobotLocation {
         }
         return Math.toDegrees(angle);
     }
-
+    public double getAngle(){
+        double angle = this.angleRadians;
+        return angle;
+    }
     @Override
     public String toString(){
         return "Robotlocation: angle (" + angleRadians + ")";
@@ -26,7 +33,14 @@ public class RobotLocation {
     public void turn(double angleChange){
         angleRadians += Math.toRadians(angleChange);
     }
+    public void changeX(double xChange){
+        x += xChange;
+    }
+    public void changeY(double yChange){
+        y += yChange;
+    }
     public void  setAngle(double angleDegrees){
         this.angleRadians = Math.toRadians(angleDegrees);
     }
+
 }
